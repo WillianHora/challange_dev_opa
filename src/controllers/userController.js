@@ -8,7 +8,7 @@ const createUser = async (req, res) => {
       });
       await user.save();
       res.status(201).json({
-        message: 'Your category has been created successfully',
+        message: 'Your user has been created successfully',
         user: user,});
     } catch (error) {
       res.status(500).json({ error: error.message });
@@ -16,28 +16,7 @@ const createUser = async (req, res) => {
   };
 
 
-
-const deleteUser = async (req,res) => {
-
-
-}
-
-
-const editUser = async (req,res) => {
-
-
-}
-
-
-const seeUser = async (req,res) => {
-
-
-}
-
 module.exports = {
-    createUser,
-    deleteUser,
-    editUser,
-    seeUser,
+    createUser
   };
 

@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
     description: String,
     amount: Number,
     price: Number,
+    categories: Object,
  })
 
 
