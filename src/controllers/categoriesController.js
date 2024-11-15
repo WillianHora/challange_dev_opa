@@ -24,7 +24,7 @@ const createCategory = async (req, res) => {
     
     if (!category) {
       return res.status(404).json({ message: "Sorry, this category not found" });
-  } else {
+  } 
         const Updatecategory = await Categories.findByIdAndUpdate(req.params.id, {
         name: req.body.name,
         description: req.body.description
@@ -33,7 +33,7 @@ const createCategory = async (req, res) => {
         message:"Your category has been edited",
         Updatecategory: Updatecategory
        })
-  }};
+  };
 
   const seeAllCategory = async (req, res) => {
     const category = await Categories.find();

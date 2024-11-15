@@ -26,7 +26,7 @@ const editProduct = async (req,res) => {
   
   if (!product) {
     return res.status(404).json({ message: "Sorry, this product not found" });
-} else {
+} 
       const UpdateProduct = await Products.findByIdAndUpdate(req.params.id, {
       name: req.body.name,
       description: req.body.description,
@@ -38,7 +38,7 @@ const editProduct = async (req,res) => {
       message:"Your product has been edited",
       Updatecategory: UpdateProduct
      })
-    }
+  
 }
 
 
