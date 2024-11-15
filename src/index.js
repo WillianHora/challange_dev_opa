@@ -1,6 +1,7 @@
 const express = require('express');
 const dataBase = require('./db/db_connection');
 const userRoutes = require('./routes/userRoutes');
+const productRoutes = require('./routes/productsRoutes');
 
 
 const app = express()
@@ -14,6 +15,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/users', userRoutes);
+app.use('/products', productRoutes);
 
 
 app.listen(port, () => {

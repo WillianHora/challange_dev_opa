@@ -4,10 +4,12 @@ const createUser = async (req, res) => {
     try {
       const user = new User({
         username: req.body.username,
-        password: req.body.password
+        password: req.body.password,
       });
       await user.save();
-      res.status(201).json(user);
+      res.status(201).json({
+        message: 'Your category has been created successfully',
+        user: user,});
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
@@ -32,10 +34,10 @@ const seeUser = async (req,res) => {
 
 }
 
-
-module.exports = editUser;
-module.exports = deleteUser;
-module.exports = createUser;
-module.exports = seeUser;
-
+module.exports = {
+    createUser,
+    deleteUser,
+    editUser,
+    seeUser,
+  };
 
