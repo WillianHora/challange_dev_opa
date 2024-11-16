@@ -23,4 +23,3 @@ app.use('/categories', categoriesRoutes);
 app.listen(port, () => {
   console.log(`Server start in port ${port}`)
 })
-

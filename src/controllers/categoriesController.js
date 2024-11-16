@@ -1,10 +1,10 @@
-const Categories = require('../db/models/CategoriesModel');
+const Category = require('../db/models/CategoriesModel');
 const Products = require('../db/models/ProductsModel');
 const mongoose = require('mongoose')
 
 const createCategory = async (req, res) => {
     try {
-      const categories = new Categories({
+      const categories = new Category({
         name: req.body.name,
         description: req.body.description
       });
@@ -22,23 +22,23 @@ const createCategory = async (req, res) => {
 
   const editCategory = async (req, res) => {
     const id = req.params.id;
-    const category = await Categories.findOne({ _id: id });
+    const category = await Category.findOne({ _id: id });
     
     if (!category) {
       return res.status(404).json({ message: "Sorry, this category not found" });
   } 
-        const Updatecategory = await Categories.findByIdAndUpdate(req.params.id, {
+        const Updatecategory = await Category.findByIdAndUpdate(req.params.id, {
         name: req.body.name,
         description: req.body.description
     })
-       return res.status(201).json({
+       return res.status(200).json({
         message:"Your category has been edited",
         Updatecategory: Updatecategory
        })
   };
 
   const seeAllCategory = async (req, res) => {
-    const category = await Categories.find();
+    const category = await Category.find();
     
     res.send(category);
   };
@@ -47,7 +47,7 @@ const createCategory = async (req, res) => {
   const seeCategory = async (req, res) => {
     try {
       const id = req.params.id;
-      const category = await Categories.findOne({ _id: id });
+      const category = await Category.findOne({ _id: id });
 
       if (!category) {
           return res.status(404).json({ message: "Sorry, this category not found" });
@@ -58,15 +58,30 @@ const createCategory = async (req, res) => {
          res.status(500).json({ message: "Your id it's not valid value!", error });
   }};
 
-//// CONTINUAR ESSSA BAGAÇA AQUI OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOH
+
   const seeCatPro = async (req, res) => {
     const id = req.params.id;
-    const CategoryFiltred = await Products.find({
-      categories: { $in: [mongoose.Types.ObjectId(id)] } 
-  });
-  
 
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(400).json({ message: "Invalid category ID" });
+    }
+
+    try {
+        const products = await Products.find({
+            categories: { $in: [new mongoose.Types.ObjectId(id)] }
+        }).populate('categories');
+
+        if (products.length === 0) {
+            return res.status(404).json({ message: "Sorry, this category not found or has no products" });
+        }
+
+        return res.status(200).json({ products });
+    } catch (error) {
+        return res.status(500).json({ message: "Internal Server Error", error: error.message });
+    }
 };
+
+  
 
 
 module.exports = {

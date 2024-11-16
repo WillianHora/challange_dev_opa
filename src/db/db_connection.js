@@ -9,7 +9,6 @@ dataBase().catch(err => console.log(err));
 
 
 
-module.exports = dataBase;
 
 
 

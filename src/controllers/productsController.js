@@ -10,7 +10,7 @@ const createProduct = async (req, res) => {
         categories: req.body.categories,
       });
       await product.save();
-      res.status(201).json({
+      res.status(200).json({
         message: "Your product has been created successful!",
         product: product,
       });
@@ -44,7 +44,7 @@ const editProduct = async (req,res) => {
 
 const seeAllProduct = async (req,res) => {
   const product = await Products.find();
-  res.status(201).json({
+  res.status(200).json({
     product
   })
 
