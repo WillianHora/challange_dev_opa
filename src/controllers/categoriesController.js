@@ -1,4 +1,6 @@
 const Categories = require('../db/models/CategoriesModel');
+const Products = require('../db/models/ProductsModel');
+const mongoose = require('mongoose')
 
 const createCategory = async (req, res) => {
     try {
@@ -38,7 +40,8 @@ const createCategory = async (req, res) => {
   const seeAllCategory = async (req, res) => {
     const category = await Categories.find();
     
-    res.send(category);};
+    res.send(category);
+  };
 
 
   const seeCategory = async (req, res) => {
@@ -55,11 +58,22 @@ const createCategory = async (req, res) => {
          res.status(500).json({ message: "Your id it's not valid value!", error });
   }};
 
+//// CONTINUAR ESSSA BAGAÇA AQUI OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOH
+  const seeCatPro = async (req, res) => {
+    const id = req.params.id;
+    const CategoryFiltred = await Products.find({
+      categories: { $in: [mongoose.Types.ObjectId(id)] } 
+  });
+  
+
+};
+
 
 module.exports = {
     createCategory,
     editCategory,
     seeAllCategory,
     seeCategory,
+    seeCatPro,
   };
 

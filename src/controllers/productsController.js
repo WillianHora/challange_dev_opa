@@ -7,7 +7,7 @@ const createProduct = async (req, res) => {
         description: req.body.description,
         amount: req.body.amount,
         price: req.body.amount,
-        categories: req.body.amount,
+        categories: req.body.categories,
       });
       await product.save();
       res.status(201).json({
@@ -32,7 +32,7 @@ const editProduct = async (req,res) => {
       description: req.body.description,
       amount: req.body.amount,
       price: req.body.amount,
-      categories: req.body.amount,
+      categories: req.body.categories,
   })
      return res.status(201).json({
       message:"Your product has been edited",
