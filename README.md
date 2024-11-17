@@ -1,7 +1,7 @@
 <h1>Challange Opa!</h1>
 <div style="display: flex;">
-<img style='width:100px; margin-right: 20px' src='https://wiki.ixcsoft.com.br/logo/logo_ixc_opasuite_cor.png'>
-<img style='width:100px; margin-right: 20px;' src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/800px-Node.js_logo.svg.png'>
+<img style='width:100px; margin-right: 50px' src='https://wiki.ixcsoft.com.br/logo/logo_ixc_opasuite_cor.png'>
+<img style='width:100px; margin-right: 50px;' src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/800px-Node.js_logo.svg.png'>
 <img style='width:60px;' src='https://boaglio.com/wp-content/uploads/2015/05/mongodb.png'>
 
 </div>
