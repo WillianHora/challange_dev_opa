@@ -101,6 +101,7 @@
 
 
 <p>Buscar os produtos por categoria</p>
+
 `/catpro/{id}`
 
 
