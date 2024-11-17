@@ -1,14 +1,14 @@
 const express = require('express');
 const { createCategory,  editCategory, seeAllCategory, seeCategory, seeCatPro } = require('../controllers/categoriesController');
-
+const { tokenValid } = require('../middlewares/tokenValid')
 const router = express.Router();
 
 
-router.post('/', createCategory); //Create a category
-router.put('/edit/:id', editCategory); // Edit a category
-router.get('/all', seeAllCategory); // Get all the categories 
-router.get('/one/:id', seeCategory); // Get only one of the categories
-router.get('/catpro/:id', seeCatPro) // Get all products in one category
+router.post('/', tokenValid, createCategory); //Criar uma categoria
+router.put('/edit/:id', tokenValid, editCategory); // Editar uma categoria
+router.get('/all', tokenValid, seeAllCategory); // Ver todas as categorias
+router.get('/one/:id', tokenValid, seeCategory); // Ver apenas uma categoria por ID
+router.get('/catpro/:id', tokenValid,seeCatPro) // Ver todos os produtos que tem uma ID de categoria vinculado
 
 
 module.exports = router;

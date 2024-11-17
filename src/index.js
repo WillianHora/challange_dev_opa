@@ -23,8 +23,7 @@ app.use('/login', loginRoutes);
 
 // rotas privadas
 app.use('/products', productRoutes);
-
-app.use('/categories', categoriesRoutes);
+app.use('/categories',  categoriesRoutes);
 
 
 app.listen(port, () => {

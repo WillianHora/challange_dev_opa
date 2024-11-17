@@ -1,5 +1,7 @@
 const User = require('../db/models/UserModel');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 const loginAuth = async (req, res) => {
     const username = req.body.username
@@ -26,9 +28,25 @@ const loginAuth = async (req, res) => {
         if (!matchPass) {
           return res.status(401).json({ message: 'Senha incorreta' });
         }
-    
-        
-        res.status(200).json({ message: 'Login realizado com sucesso!' });
+            // res.status(200).json({ message: 'Login realizado com sucesso!' });
+             try {
+                const secret = process.env.SECRET
+                const token = jwt.sign({
+                    id: username._id,
+                },
+                secret,
+            )
+                
+                return res.status(200).json({
+                    message: "Sucesso", token
+                })
+
+             } catch (error) {
+                
+            }
+
+
+
       } catch (error) {
         
         res.status(500).json({ message: 'Erro no servidor', error: error.message });

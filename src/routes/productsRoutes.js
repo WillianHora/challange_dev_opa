@@ -1,12 +1,14 @@
 const express = require('express');
+require('dotenv').config()
+const { tokenValid } = require('../middlewares/tokenValid')
 const { createProduct, editProduct, seeAllProduct, seeProduct } = require('../controllers/productsController');
 const router = express.Router();
 
 
-router.post('/', createProduct); //Create a product
-router.put('/edit/:id', editProduct); // Edit a product
-router.get('/all', seeAllProduct); // Get all the products 
-router.get('/one/:id', seeProduct); // Get only one product 
+router.post('/', tokenValid, createProduct); //Criar um produto
+router.put('/edit/:id', tokenValid,editProduct); // Editar um produto
+router.get('/all', tokenValid, seeAllProduct); // Ver todos os produtos
+router.get('/one/:id', tokenValid, seeProduct); // Ver um produto por ID
 
 
 module.exports = router;
