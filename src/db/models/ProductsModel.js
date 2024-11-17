@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
    description: { type: String },
    amount: { type: Number, required: true },
    price: { type: Number, required: true },
-   categories: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Category' }]
+   categories: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Category', required: true }]
 
  })
 
