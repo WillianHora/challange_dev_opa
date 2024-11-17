@@ -1,8 +1,8 @@
 <h1>Challange Opa!</h1>
-<div style="display: flex; align-items: center; justify-content:center;">
+<div style="display: flex; align-items: center;">
 <img style='width:100px;' src='https://wiki.ixcsoft.com.br/logo/logo_ixc_opasuite_cor.png'>
 <img style='width:100px; margin: 20px;' src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/800px-Node.js_logo.svg.png'>
-<img style='width:100px; height: 40px;' src='https://raw.githubusercontent.com/deepset-ai/haystack-integrations/main/logos/mongodb.png'>
+<img style='width:100px; height: 40px;' src='https://ioco.tech/wp-content/uploads/2020/04/mongodb-logo.png'>
 
 </div>
 <h2>Propósito do projeto:</h2>
