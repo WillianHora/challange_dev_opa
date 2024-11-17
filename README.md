@@ -1,4 +1,4 @@
-<h1>Challange Opa!</h1>
+<h1>Challange Opa!</h1> <img src='https://wiki.ixcsoft.com.br/logo/logo_ixc_opasuite_cor.png'>
 <h2>Propósito do projeto:</h2>
 <p>Este foi um projeto elaborado com base em um desafio para a oportunidade de ingressar como desenvolvedor do Opa!</p>
 
