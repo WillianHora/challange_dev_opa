@@ -10,7 +10,7 @@ const createCategory = async (req, res) => {
       });
       await categories.save();
       res.status(201).json({
-        message: "Your category has been created successfull",
+        message: "Sucesso!",
         categories:categories
         
       });
@@ -25,14 +25,14 @@ const createCategory = async (req, res) => {
     const category = await Category.findOne({ _id: id });
     
     if (!category) {
-      return res.status(404).json({ message: "Sorry, this category not found" });
+      return res.status(404).json({ message: "Categoria não encontrada :/" });
   } 
         const Updatecategory = await Category.findByIdAndUpdate(req.params.id, {
         name: req.body.name,
         description: req.body.description
     })
        return res.status(200).json({
-        message:"Your category has been edited",
+        message:"Sucesso!",
         Updatecategory: Updatecategory
        })
   };
@@ -50,12 +50,12 @@ const createCategory = async (req, res) => {
       const category = await Category.findOne({ _id: id });
 
       if (!category) {
-          return res.status(404).json({ message: "Sorry, this category not found" });
+          return res.status(404).json({ message: "Categoria não encontrada :/" });
       };
 
       res.status(200).json({ category });
   }   catch (error) {
-         res.status(500).json({ message: "Your id it's not valid value!", error });
+         res.status(500).json({ message: "ID Inválido! ", error });
   }};
 
 
@@ -63,7 +63,7 @@ const createCategory = async (req, res) => {
     const id = req.params.id;
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(400).json({ message: "Invalid category ID" });
+        return res.status(404).json({ message: "Id Inválido!" });
     }
 
     try {
@@ -72,12 +72,12 @@ const createCategory = async (req, res) => {
         }).populate('categories');
 
         if (products.length === 0) {
-            return res.status(404).json({ message: "Sorry, this category not found or has no products" });
+            return res.status(404).json({ message: "Desculpe, a categoria não foi encontrada :/" });
         }
 
         return res.status(200).json({ products });
     } catch (error) {
-        return res.status(500).json({ message: "Internal Server Error", error: error.message });
+        return res.status(500).json({ message: "Erro interno", error: error.message });
     }
 };
 

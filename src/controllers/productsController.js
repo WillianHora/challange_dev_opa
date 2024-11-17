@@ -1,7 +1,7 @@
 const Products = require('../db/models/ProductsModel');
 
 const createProduct = async (req, res) => {
-    try {
+  try {
       const product = new Products({
         name: req.body.name,
         description: req.body.description,
@@ -11,7 +11,7 @@ const createProduct = async (req, res) => {
       });
       await product.save();
       res.status(200).json({
-        message: "Your product has been created successful!",
+        message: "Sucesso!",
         product: product,
       });
     } catch (error) {
@@ -25,7 +25,7 @@ const editProduct = async (req,res) => {
   const product = await Products.findOne({ _id: id });
   
   if (!product) {
-    return res.status(404).json({ message: "Sorry, this product not found" });
+    return res.status(404).json({ message: "Desculpe o produto não foi encontrado :/" });
 } 
       const UpdateProduct = await Products.findByIdAndUpdate(req.params.id, {
       name: req.body.name,
@@ -35,7 +35,7 @@ const editProduct = async (req,res) => {
       categories: req.body.categories,
   })
      return res.status(201).json({
-      message:"Your product has been edited",
+      message:"Sucesso!",
       Updatecategory: UpdateProduct
      })
   
@@ -58,12 +58,12 @@ const seeProduct = async (req,res) => {
     const product = await Products.findOne({ _id: id });
 
     if (!product) {
-        return res.status(404).json({ message: "Sorry, this product not found" });
+        return res.status(404).json({ message: "Desculpe, produtro não encontrado :/" });
     }
 
     res.status(200).json({ product });
 } catch (error) {
-    res.status(500).json({ message: "Your id it's not valid value!", error });
+    res.status(500).json({ message: "ID Inválido!", error });
 }
 
 
