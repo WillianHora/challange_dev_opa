@@ -180,8 +180,9 @@ Aqui estão as rotas detalhadas da API para facilitar a integração:
 - **Listar todas as categorias com os produtos que foram vinculados**  
   **GET** `/categories/allWpro`
 
-##Fluxograma da aplicação
 
 ---
 
-<a src='fluxograma.png'></a>
+<h2>Fluxograma da aplicação</h2>
+<img src="fluxograma.png">
+
