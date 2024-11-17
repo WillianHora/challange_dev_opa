@@ -1,109 +1,181 @@
-<h1>Challange Opa!</h1>
+
+# Challange Opa!
+
 <div style="display: flex;">
 <img style='width:100px; margin-right: 50px' src='https://wiki.ixcsoft.com.br/logo/logo_ixc_opasuite_cor.png'>
 <img style='width:100px; margin-right: 50px;' src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/800px-Node.js_logo.svg.png'>
 <img style='width:60px;' src='https://boaglio.com/wp-content/uploads/2015/05/mongodb.png'>
-
 </div>
-<h2>Propósito do projeto:</h2>
-<p>Este foi um projeto elaborado com base em um desafio para a oportunidade de ingressar como desenvolvedor do Opa!</p>
 
-<h3>Desafio</h3>
-<p>Criar uma API para gerenciar categorias e produtos, possibilidade a criação e autenticação de usuários para utilizar o sistema, utiliazando autenticação via token para executar o gerencimento</p> 
-<h3>Tecnologias</h3>
-<ol> 
- <li>Node.js 20.18.0 </li> 
- <li>Mongodb v8.0.3 </li> 
-</ol>
-<h2>Critérios</h2>
-<ol>
-    <li>Criar usuários e realizar autenticação</li>
-    <li>Criar, editar e listar produtos/categorias</li>
-    <li>Buscar todos os produtos pertencentes a uma categoria</li>
-    <li>Buscar todas as categorias e trazer os produtos vinculados</li>
-</ol>
+## Propósito do Projeto
 
-<h2>Instalação</h2>
+Este projeto foi desenvolvido como parte de um desafio técnico para ingressar como desenvolvedor na equipe do Opa! Ele consiste em uma API para gerenciamento de categorias, produtos e autenticação de usuários, utilizando autenticação via token para segurança.
 
-<h3>Baixando e configurando o projeto:</h3>
+---
 
-<p>Baixe o nodejs: <a href="https://nodejs.org/en">Clique aqui</a></p>
+## Tecnologias Utilizadas
 
-<p>Baixe o projeto com Git clone ou ZIP</p>
+- **Node.js**: versão 20.18.0  
+- **MongoDB**: versão 8.0.3  
 
-`git clone https://github.com/WillianHora/challange_dev_opa.git`
+---
 
-<p>Instalando dependências</p>
+## Funcionalidades Principais
 
-`npm install`
+1. Criação e autenticação de usuários.
+2. Gerenciamento completo de produtos e categorias (criação, edição, listagem).
+3. Busca de produtos por categoria.
+4. Listagem de categorias com seus respectivos produtos.
 
-<p>Crie um arquivo .env com as variáveis necessárias. Nesse projeto é obrigatório somente a variável secret que se diz respeito a geração do token</p>
+---
 
-```SECRET = 848fdyIU9R89UD**@!@$$Ho0HDJHAVdifjkkjlfopa0481y30```
+## Instalação e Configuração
 
-<h3>Baixando o mongodb e conectando:</h3>
+### Pré-requisitos
+1. **Node.js**: [Baixe aqui](https://nodejs.org/en)
+2. **MongoDB**: [Baixe aqui](https://www.mongodb.com/pt-br)
 
-<p>Baixe o mongodb: <a href="https://www.mongodb.com/pt-br">Clique aqui</a></p>
+### Clonando o Repositório
 
-<p>Instale o mongodb localmente, siga para o arquivo db_connection.js caso o banco esteja em outra computador da sua rede ou queira alterar o nome do banco</p>
+Clone o repositório:
 
-`mongoose.connect('mongodb://127.0.0.1:27017/opa-dev')`
+```bash
+git clone https://github.com/WillianHora/challange_dev_opa.git
+```
 
-<p>Caso queira usar o Atlas, basta também só alterar a URL do campo de conexão, de preferencia criar as variaveis da URL e da senha que conecta ao banco e utilizar a dotenv para obter os dados</p>
+### Instalando Dependências
 
-<h3>Executando aplicação</h3>
+Acesse a pasta do projeto e instale as dependências:
 
-`npm start`
+```bash
+npm install
+```
 
-<h3>Endpoints:</h3>
-<h4>Rota para a criação de usuário</h4>
+### Configuração do Arquivo `.env`
 
-`/user`
+Crie um arquivo `.env` na raiz do projeto com a seguinte variável obrigatória:
 
-<h4>Rota para autenticação</h4>
+```env
+SECRET=848fdyIU9R89UD**@!@$$Ho0HDJHAVdifjkkjlfopa0481y30
+```
 
-`/login`
+### Configuração do Banco de Dados
 
-<h4>Rotas para produtos</h4>
-<p>Criar produto</p>
+#### Banco Local
+Se estiver utilizando o MongoDB localmente, certifique-se de que ele esteja rodando e utilize a conexão padrão no arquivo `db_connection.js`:
 
-`/products/`
+```javascript
+mongoose.connect('mongodb://127.0.0.1:27017/opa-dev');
+```
 
-<p>Editar produto</p>
+#### MongoDB Atlas
+Caso prefira usar o Atlas, ajuste a URL no mesmo arquivo. Recomenda-se armazenar a URL e a senha em variáveis de ambiente e usar a biblioteca `dotenv` para carregá-las.
 
-`/products/{id}`
+---
 
-<p>listar todos os produtos</p>
+## Executando a Aplicação
 
-`/products/all`
+Para iniciar o servidor:
 
-<p>Listar apenas um produto</p>
+```bash
+npm start
+```
 
-`/products/one/{id}`
+---
 
+## Endpoints da API
 
-<h4>Rotas para categorias</h4>
-<p>Criar produto</p>
+Aqui estão as rotas detalhadas da API para facilitar a integração:
 
-`/categories/`
+### **Autenticação de Usuários**
 
-<p>Editar produto</p>
+- **Criar Usuário**  
+  **POST** `/user`  
+  **Payload**:  
+  ```json
+  {
+    "username": "string",
+    "password": "string"
+  }
+  ```
 
-`/categories/{id}`
+- **Autenticar Usuário**  
+  **POST** `/login`  
+  **Payload**:  
+  ```json
+  {
+    "username": "string",
+    "password": "string"
+  }
+  ```
 
-<p>listar todos os produtos</p>
+---
 
-`/categories/all`
+### **Gerenciamento de Produtos**
 
-<p>Listar apenas um produto</p>
+- **Criar Produto**  
+  **POST** `/products`  
+  **Payload**:  
+  ```json
+  {
+    "name": "string",
+    "description": "string",
+    "price": "number",
+    "amount": "string",
+    "categories "object"
+  }
+  ```
 
-`/products/one/{id}`
+- **Editar Produto**  
+  **PUT** `/products/{id}`  
+  **Payload**:  
+  ```json
+  {
+    "name": "string",
+    "description": "string",
+    "price": "number",
+    "amount": "string",
+    "categories "object"
+  }
+  ```
 
+- **Listar Todos os Produtos**  
+  **GET** `/products/all`
 
-<p>Buscar os produtos por categoria</p>
+- **Obter Produto por ID**  
+  **GET** `/products/one/{id}`
 
-`/catpro/{id}`
+---
 
+### **Gerenciamento de Categorias**
 
+- **Criar Categoria**  
+  **POST** `/categories`  
+  **Payload**:  
+  ```json
+  {
+    "name": "string",
+    "description": "string"
+  }
+  ```
 
+- **Editar Categoria**  
+  **PUT** `/categories/{id}`  
+  **Payload**:  
+  ```json
+  {
+    "name": "string",
+    "description": "string"
+  }
+  ```
 
+- **Listar Todas as Categorias**  
+  **GET** `/categories/all`
+
+- **Obter Categoria por ID**  
+  **GET** `/categories/one/{id}`
+
+- **Listar Produtos de uma Categoria**  
+  **GET** `/catpro/{id}`
+
+---
