@@ -177,5 +177,8 @@ Aqui estão as rotas detalhadas da API para facilitar a integração:
 - **Obter Categoria por ID**  
   **GET** `/categories/one/{id}`
 
+- **Listar todas as categorias com os produtos que foram vinculados**  
+  **GET** `/categories/allWpro`
+
 
 ---
