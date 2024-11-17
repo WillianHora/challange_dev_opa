@@ -122,7 +122,7 @@ Aqui estão as rotas detalhadas da API para facilitar a integração:
     "description": "string",
     "price": "number",
     "amount": "string",
-    "categories "object"
+    "categories": "object"
   }
   ```
 
@@ -135,7 +135,7 @@ Aqui estão as rotas detalhadas da API para facilitar a integração:
     "description": "string",
     "price": "number",
     "amount": "string",
-    "categories "object"
+    "categories": "object"
   }
   ```
 
