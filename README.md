@@ -2,7 +2,7 @@
 <div style="display: flex; align-items: center;">
 <img style='width:100px;' src='https://wiki.ixcsoft.com.br/logo/logo_ixc_opasuite_cor.png'>
 <img style='width:100px; margin: 20px;' src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/800px-Node.js_logo.svg.png'>
-<img style='width:100px; height: 40px;' src='[https://ioco.tech/wp-content/uploads/2020/04/mongodb-logo.png](https://boaglio.com/wp-content/uploads/2015/05/mongodb.png](https://boaglio.com/wp-content/uploads/2015/05/mongodb.png)'>
+<img style='width:100px; height: 40px;' src='https://ioco.tech/wp-content/uploads/2020/04/mongodb-logo.png'>
 
 </div>
 <h2>Propósito do projeto:</h2>
