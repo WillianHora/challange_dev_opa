@@ -39,7 +39,7 @@
 
 <p>Crie um arquivo .env com as variáveis necessárias. Nesse projeto é obrigatório somente a variável secret que se diz respeito a geração do token</p>
 
-`SECRET = 848fdyIU9R89UD**@!@$$Ho0HDJHAVdifjkkjlfopa0481y30`
+```SECRET = 848fdyIU9R89UD**@!@$$Ho0HDJHAVdifjkkjlfopa0481y30```
 
 <h3>Baixando o mongodb e conectando:</h3>
 
