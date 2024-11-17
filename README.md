@@ -1,10 +1,6 @@
-<h1>How to execute this project </h1>
-<p>Run:</p>
+<h1>Challange Opa!</h1>
+<h2>Propósito do projeto:</h2>
+<p>Este foi um desafio elaborado para  uma oportunidade de ingressar como desenvolvedor do Opa!</p>
 
-`npm install`
-<br>
-`cd src`
-<br>
-`node index.js`
-
+<h2>Requisitos e tecnologias</h2>
 
