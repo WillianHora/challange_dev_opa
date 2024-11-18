@@ -53,7 +53,7 @@ npm install
 
 ### Configuração do Arquivo `.env`
 
-Crie um arquivo `.env` na raiz do projeto com a seguinte variável obrigatória:
+Crie um arquivo `.env` na raiz do projeto com a  variável "SECRET" para gerar os tokens, exemplo:
 
 ```env
 SECRET=848fdyIU9R89UD**@!@$$Ho0HDJHAVdifjkkjlfopa0481y30
