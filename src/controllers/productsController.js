@@ -102,7 +102,6 @@ module.exports = {
     editProduct,
     seeProduct,
     seeAllProduct,
-    seeCatPro,
     seeProCat,
   };
 
