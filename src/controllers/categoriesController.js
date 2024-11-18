@@ -59,7 +59,32 @@ const createCategory = async (req, res) => {
   }};
 
 
-  
+  const allWpro = async (req, res) => {
+    try {
+        const categories = await Category.find();
+
+        if (categories.length === 0) {
+            return res.status(404).json({ message: "Nenhuma categoria encontrada." });
+        }
+        const categoriesWithProducts = await Promise.all(
+            categories.map(async (category) => {
+                const products = await Products.find({
+                    categories: { $in: [category._id] }
+                });
+
+                return {
+                    category,
+                    products
+                };
+            })
+        );
+
+        return res.status(200).json(categoriesWithProducts);
+    } catch (error) {
+        return res.status(500).json({ message: "Erro interno", error: error.message });
+    }
+};
+
 
   
 
@@ -69,6 +94,6 @@ module.exports = {
     editCategory,
     seeAllCategory,
     seeCategory,
-    
+    allWpro,
   };
 
