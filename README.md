@@ -146,7 +146,7 @@ Aqui estão as rotas detalhadas da API para facilitar a integração:
   **GET** `/products/one/{id}`
 
 - **Listar Produtos de uma Categoria**  
-  **GET** `/catpro/{id}`
+  **GET** `products/catpro/{id}`
 ---
 
 ### **Gerenciamento de Categorias**
