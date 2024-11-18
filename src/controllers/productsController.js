@@ -7,7 +7,7 @@ const createProduct = async (req, res) => {
         name: req.body.name,
         description: req.body.description,
         amount: req.body.amount,
-        price: req.body.amount,
+        price: req.body.price,
         categories: req.body.categories,
       });
       await product.save();
@@ -32,7 +32,7 @@ const editProduct = async (req,res) => {
       name: req.body.name,
       description: req.body.description,
       amount: req.body.amount,
-      price: req.body.amount,
+      price: req.body.price,
       categories: req.body.categories,
   })
      return res.status(201).json({
@@ -59,7 +59,7 @@ const seeProduct = async (req,res) => {
     const product = await Products.findOne({ _id: id });
 
     if (!product) {
-        return res.status(404).json({ message: "Desculpe, produtro não encontrado :/" });
+        return res.status(404).json({ message: "Desculpe, produto não encontrado :/" });
     }
 
     res.status(200).json({ product });
