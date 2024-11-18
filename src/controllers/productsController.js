@@ -1,5 +1,6 @@
 const Products = require('../db/models/ProductsModel');
 const mongoose = require('mongoose')
+const Category = require('../db/models/CategoriesModel');
 
 const createProduct = async (req, res) => {
   try {
@@ -92,11 +93,38 @@ const seeCatPro = async (req, res) => {
   }
 };
 
+
+const seeProCat = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+      const category = await Category.findById(id);
+      if (!category) {
+          return res.status(404).json({ message: "Categoria não encontrada." });
+      }
+      const products = await Products.find({
+          categories: { $in: [new mongoose.Types.ObjectId(id)] }
+      });
+
+      if (products.length === 0) {
+          return res.status(404).json({ message: "Nenhum produto relacionado a essa categoria." });
+      }
+
+      return res.status(200).json({ category, products });
+  } catch (error) {
+      return res.status(500).json({ message: "Erro interno", error: error.message });
+  }
+};
+
+
+
+
 module.exports = {
     createProduct,
     editProduct,
     seeProduct,
     seeAllProduct,
     seeCatPro,
+    seeProCat,
   };
 
